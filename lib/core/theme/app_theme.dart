@@ -8,7 +8,7 @@ import 'theme_extension/text_theme.dart';
 class AppTheme {
   AppTheme._();
   static ThemeData lightTheme = ThemeData(
-    scaffoldBackgroundColor: AppColorScheme.colorScheme.secondary,
+    scaffoldBackgroundColor: Color(0xffF8FAFB),
     textTheme: AppTextTheme.lightTextTheme,
     colorScheme: AppColorScheme.colorScheme,
     inputDecorationTheme: AppInputDecorationTheme.lightInputDecorationTheme,
