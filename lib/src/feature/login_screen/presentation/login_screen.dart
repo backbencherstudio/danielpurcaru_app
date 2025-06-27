@@ -14,6 +14,25 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  late final FocusNode userNameFocusNode;
+  late final FocusNode passwordFocusNode;
+
+  @override
+  void initState() {
+    userNameFocusNode = FocusNode();
+    passwordFocusNode = FocusNode();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    userNameFocusNode.dispose();
+    passwordFocusNode.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -35,6 +54,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 42.h),
               TextFormField(
+                focusNode: userNameFocusNode,
+                onTapOutside: (_)=>userNameFocusNode.unfocus(),
                 decoration: InputDecoration(hintText: "Enter your Username"),
               ),
               SizedBox(height: 12.h),
@@ -42,6 +63,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 builder: (_, ref, _) {
                   final isObscure = ref.watch(passwordVisibilityProvider);
                   return TextFormField(
+                    focusNode: passwordFocusNode,
+                    onTapOutside: (_)=>passwordFocusNode.unfocus(),
                     obscureText: isObscure,
                     decoration: InputDecoration(
                       hintText: "Enter your password",
