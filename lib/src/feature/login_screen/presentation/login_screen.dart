@@ -1,10 +1,12 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
+import 'package:danielpurcaru_time_tracker_app/core/routes/route_const.dart';
 import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_scheme.dart';
 import 'package:danielpurcaru_time_tracker_app/src/feature/login_screen/riverpod/single_value_provider/password_visibility_provider.dart';
 import 'package:danielpurcaru_time_tracker_app/src/feature/login_screen/riverpod/single_value_provider/remember_me_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -106,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 32.h),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(onPressed: () {}, child: Text("Login")),
+                child: ElevatedButton(onPressed: ()=>context.go(RouteName.homeScreen), child: Text("Login")),
               ),
             ],
           ),
