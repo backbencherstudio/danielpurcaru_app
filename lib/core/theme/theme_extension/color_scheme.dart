@@ -10,6 +10,9 @@ class AppColorScheme {
   static const Color surface = Color(0xFFF7F8F9);
   static const Color onSurface = Color(0xFFA5A5AB);
   static const Color successful = Color(0xFF1A9882);
+  static const Color textColor = Color(0xff1D1F2C);
+  static const Color secondaryTextColor = Color(0xff4A4C56);
+  static const Color labelTextColor = Color(0xff777980);
 
   static ColorScheme colorScheme = ColorScheme.light(
     primary: primary,
