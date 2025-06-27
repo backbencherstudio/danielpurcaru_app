@@ -18,7 +18,7 @@ class AppTextTheme {
     ),
     displaySmall: GoogleFonts.urbanist(
       fontSize: 24.0.sp,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w700,
       color: AppColorScheme.onPrimary,
     ),
 
@@ -60,17 +60,17 @@ class AppTextTheme {
     labelLarge: GoogleFonts.urbanist(
       fontSize: 14.0.sp,
       fontWeight: FontWeight.w400,
-      color: AppColorScheme.onSecondary,
+      color: AppColorScheme.labelTextColor,
     ),
     labelMedium: GoogleFonts.urbanist(
       fontSize: 12.0.sp,
       fontWeight: FontWeight.w400,
-      color: AppColorScheme.onSecondary,
+      color: AppColorScheme.labelTextColor,
     ),
     labelSmall: GoogleFonts.urbanist(
       fontSize: 10.0.sp,
       fontWeight: FontWeight.w400,
-      color: AppColorScheme.onSecondary,
+      color: AppColorScheme.labelTextColor,
     ),
   );
 }
