@@ -38,6 +38,10 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_riverpod: ^2.6.1
   google_fonts: ^6.2.1
+  http: ^1.4.0
+  fluttertoast: ^8.2.12
+  flutter_svg: ^2.2.0
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
