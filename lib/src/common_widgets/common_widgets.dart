@@ -1,3 +1,2 @@
 
-class CommonWidget {
-}
+class CommonWidget {}
