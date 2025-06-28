@@ -2,7 +2,7 @@ part of 'route_import_part.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.homeScreen,
+    initialLocation: RouteName.recordingScreen,
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
@@ -90,6 +90,18 @@ class RouteConfig {
         path: RouteName.loginScreen,
         pageBuilder: (context, state) {
           return const MaterialPage(child: LoginScreen());
+        },
+      ),
+      GoRoute(
+        name: RouteName.timeRecordingHistory,
+        path: RouteName.timeRecordingHistory,
+        pageBuilder: (context, state) {
+          return buildPageWithTransition(
+            context: context,
+            state: state,
+            transitionType: PageTransitionType.slideRightToLeft,
+            child: TimeRecordingHistory(),
+          );
         },
       ),
     ],
