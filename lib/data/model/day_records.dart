@@ -31,7 +31,7 @@ class DayRecord {
           ? DateTime.parse(json['lunchEndTime'])
           : null,
       endTime: json['endTime'] != null ? DateTime.parse(json['endTime']) : null,
-      totalHours: json['totalHours'] ?? '',
+      totalHours: json['totalHours'] ?? 'No Record',
       earning: json['earning'] != null
           ? (json['earning'] is double
                 ? json['earning']

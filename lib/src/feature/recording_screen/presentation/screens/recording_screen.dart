@@ -5,8 +5,10 @@ import 'package:danielpurcaru_time_tracker_app/src/common_widgets/custom_app_bar
 import 'package:danielpurcaru_time_tracker_app/src/feature/recording_screen/riverpod/month_selection.dart' hide MonthName;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../calendar/calendar.dart';
 import '../widgets/month_cell_widget.dart';
 
 class RecordingScreen extends StatelessWidget {
@@ -18,6 +20,7 @@ class RecordingScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAppBar(title: 'Company Name'),
+          Calendar(),
           Expanded(
             child: Padding(
               padding: AppPadding.horizontalPadding,

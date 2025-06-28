@@ -8,12 +8,9 @@ final monthSelectionProvider = StateNotifierProvider<MonthSelectorNotifier, Mont
 class MonthSelectorNotifier extends StateNotifier<MonthName?> {
   MonthSelectorNotifier() : super(null);
 
-  // Select the month and update the state
   Future<void> selectMonth(int index) async {
-    // Set the state to the selected month
     state = MonthName.values[index];
 
-    // Adding delay (if required)
-    await Future.delayed(Duration(seconds: 2000));
+    await Future.delayed(Duration(milliseconds: 500));
   }
 }

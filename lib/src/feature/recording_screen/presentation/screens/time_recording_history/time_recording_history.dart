@@ -1,29 +1,14 @@
 import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_scheme.dart';
+import 'package:danielpurcaru_time_tracker_app/data/model/month_records.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
+import '../../../../../../core/utils/utils.dart';
 import '../../../../../../data/dummy_data/jan_month_data.dart';
 import '../../../../../../data/model/day_records.dart';
 import '../../../../../common_widgets/custom_app_bar/custom_app_bar.dart';
 
 class TimeRecordingHistory extends StatelessWidget {
   const TimeRecordingHistory({super.key});
-
-  // Helper function to format DateTime into HH:mm
-  String formatTime(DateTime? time) {
-    if (time != null) {
-      return DateFormat('H:mm').format(time); // e.g., 8:30
-    }
-    return 'N/A';
-  }
-
-  // Helper function to format lunch time range into HH:mm-HH:mm
-  String formatLunchTime(DateTime? startTime, DateTime? endTime, bool isRange) {
-    if (startTime != null && endTime != null) {
-      return '${DateFormat('H').format(startTime)}-${DateFormat('H').format(endTime)}';
-    }
-    return 'N/A';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +18,9 @@ class TimeRecordingHistory extends StatelessWidget {
     List<DayRecord> dayRecords = (janMonthData["records"] as List<dynamic>)
         .map<DayRecord>((json) => DayRecord.fromJson(json))
         .toList();
+    final MonthRecords monthRecords = MonthRecords.fromJson(
+      janMonthData['summary'] as Map<String, dynamic>,
+    );
 
     return Scaffold(
       body: Column(
@@ -79,17 +67,17 @@ class TimeRecordingHistory extends StatelessWidget {
                   return DataRow(
                     cells: <DataCell>[
                       DataCell(Text('Jan ${record.date.day}')), // Date
-                      DataCell(Text(formatTime(record.startTime))),
+                      DataCell(Text(Utils.formatTime(record.startTime))),
                       DataCell(
                         Text(
-                          formatLunchTime(
+                          Utils.formatLunchTime(
                             record.lunchStartTime,
                             record.lunchEndTime,
                             true,
                           ),
                         ),
                       ),
-                      DataCell(Text(formatTime(record.endTime))),
+                      DataCell(Text(Utils.formatTime(record.endTime))),
                       DataCell(Text(record.totalHours)),
                     ],
                   );
@@ -97,9 +85,67 @@ class TimeRecordingHistory extends StatelessWidget {
               ),
             ),
           ),
-        ],
+          SizedBox(height: 20.h),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              StatisticsCard(
+                title: 'Total Days',
+                value: monthRecords.days.toString(),
+              ),
+              StatisticsCard(
+                title: 'Total Hours',
+                value: monthRecords.totalHours.toString(),
+              ),
+              StatisticsCard(
+                title: 'Total Earning',
+                value: '\$${monthRecords.totalEarning.toString()}',
+              ),
+            ],
+          ),        ],
       ),
     );
   }
 }
 
+class StatisticsCard extends StatelessWidget {
+  final String title;
+  final String value;
+  final String? subtitle;
+
+  const StatisticsCard({
+    super.key,
+    required this.title,
+    required this.value,
+    this.subtitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color: AppColorScheme.secondary,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        children: [
+          Text(
+            title,
+            style: textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 8.0),  // Adds some space between the title and value
+          Text(
+            value,
+            style: textTheme.titleMedium,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
