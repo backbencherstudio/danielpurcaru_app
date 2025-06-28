@@ -31,7 +31,7 @@ class CustomAppBar extends StatelessWidget {
         backgroundColor: AppColorScheme.primary,
         centerTitle: centerTitle,
         title: Padding(
-          padding:  EdgeInsets.only( left : 8.w),
+          padding: EdgeInsets.only(left: 8.w),
           child: Text(
             title,
             style: Theme.of(
@@ -45,10 +45,7 @@ class CustomAppBar extends StatelessWidget {
                 icon: Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
               )
             : null,
-        actions: [
-          if (isTrailing)
-            LanguageManuBar(),
-        ],
+        actions: [if (isTrailing) LanguageManuBar()],
       ),
     );
   }
