@@ -1,5 +1,7 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
 import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_scheme.dart';
+import 'package:danielpurcaru_time_tracker_app/src/feature/home_screen/presentation/widgets/month_work_summary/month_work_summary.dart';
+import 'package:danielpurcaru_time_tracker_app/src/feature/home_screen/presentation/widgets/user_work_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:horizontal_list_calendar/horizontal_list_calendar.dart';
@@ -14,13 +16,21 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      body: Column(
-        children: [
-          CustomAppBar(title: "Company Name"),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomAppBar(title: "Company Name"),
 
-          SizedBox(height: 24.h),
-          Calendar(),
-        ],
+            SizedBox(height: 24.h),
+            Calendar(),
+            SizedBox(height: 16.h),
+            UserWorkSummary(),
+            SizedBox(height: 16.h),
+            MonthWorkSummary(),
+            SizedBox(height: 100.h,)
+          ],
+        ),
       ),
     );
   }
