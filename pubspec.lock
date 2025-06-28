@@ -152,6 +152,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.2.1"
+  horizontal_list_calendar:
+    dependency: "direct main"
+    description:
+      name: horizontal_list_calendar
+      sha256: "9f00a0387af3aa4aa4450ccfea39588af26b6073ae60967878b83cab2b974cbd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   http:
     dependency: "direct main"
     description:

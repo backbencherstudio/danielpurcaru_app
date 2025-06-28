@@ -20,7 +20,7 @@ class LanguageManuBar extends StatelessWidget {
         final languageNotifier = ref.read(languageProvider.notifier);
         return GestureDetector(
           key: _menuKey,
-          onTap: ()  async {
+          onTap: () async {
             final RenderBox renderBox =
                 _menuKey.currentContext!.findRenderObject() as RenderBox;
             final Offset offset = renderBox.localToGlobal(
@@ -93,7 +93,7 @@ class LanguageManuBar extends StatelessWidget {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-             // spacing: 7.w,
+              // spacing: 7.w,
               children: [
                 SvgPicture.asset(AppIcons.globe),
                 Text(language),
@@ -102,7 +102,7 @@ class LanguageManuBar extends StatelessWidget {
             ),
           ),
         );
-      }
+      },
     );
   }
 }

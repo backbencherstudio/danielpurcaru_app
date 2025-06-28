@@ -16,7 +16,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   late final FocusNode userNameFocusNode;
   late final FocusNode passwordFocusNode;
 
@@ -33,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
     passwordFocusNode.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 42.h),
               TextFormField(
                 focusNode: userNameFocusNode,
-                onTapOutside: (_)=>userNameFocusNode.unfocus(),
+                onTapOutside: (_) => userNameFocusNode.unfocus(),
                 decoration: InputDecoration(hintText: "Enter your Username"),
               ),
               SizedBox(height: 12.h),
@@ -66,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   final isObscure = ref.watch(passwordVisibilityProvider);
                   return TextFormField(
                     focusNode: passwordFocusNode,
-                    onTapOutside: (_)=>passwordFocusNode.unfocus(),
+                    onTapOutside: (_) => passwordFocusNode.unfocus(),
                     obscureText: isObscure,
                     decoration: InputDecoration(
                       hintText: "Enter your password",
@@ -108,7 +106,10 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 32.h),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(onPressed: ()=>context.go(RouteName.homeScreen), child: Text("Login")),
+                child: ElevatedButton(
+                  onPressed: () => context.go(RouteName.homeScreen),
+                  child: Text("Login"),
+                ),
               ),
             ],
           ),

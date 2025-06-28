@@ -1,2 +1,1 @@
-class Utils{
-}
+class Utils {}

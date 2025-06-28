@@ -21,7 +21,6 @@ class BottomNavBar extends StatelessWidget {
           topRight: Radius.circular(20.r),
         ),
         child: BottomNavigationBar(
-
           enableFeedback: false,
           backgroundColor: Colors.white,
           currentIndex: navigationShell.currentIndex,

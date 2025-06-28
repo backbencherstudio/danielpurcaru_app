@@ -15,16 +15,22 @@ class ProfileScreen extends StatelessWidget {
     required Function onTap,
     Color? color,
     required TextTheme textTheme,
-  }){
+  }) {
     return GestureDetector(
-      onTap: ()=>onTap(),
+      onTap: () => onTap(),
       child: Padding(
-        padding:  EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(8.0),
         child: Row(
           spacing: 12.w,
           children: [
             SvgPicture.asset(iconPath),
-            Text(title,style: textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500,color: color),)
+            Text(
+              title,
+              style: textTheme.bodyLarge?.copyWith(
+                fontWeight: FontWeight.w500,
+                color: color,
+              ),
+            ),
           ],
         ),
       ),
@@ -38,14 +44,14 @@ class ProfileScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAppBar(title: "Profile", centerTitle: true, isTrailing: false),
-         SizedBox(height: 24.h,),
+          SizedBox(height: 24.h),
           Padding(
-              padding: AppPadding.horizontalPadding,
+            padding: AppPadding.horizontalPadding,
             child: Container(
               padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(16.r)
+                borderRadius: BorderRadius.circular(16.r),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,26 +60,26 @@ class ProfileScreen extends StatelessWidget {
                   customListTile(
                     title: "Jerome Bell",
                     iconPath: AppIcons.user,
-                    onTap: (){},
+                    onTap: () {},
                     textTheme: textTheme,
                   ),
                   customListTile(
                     title: "jeromebell@gmail.com",
                     iconPath: AppIcons.email,
-                    onTap: (){},
+                    onTap: () {},
                     textTheme: textTheme,
                   ),
                   customListTile(
                     title: "Logout",
                     iconPath: AppIcons.logOut,
-                    onTap: (){},
+                    onTap: () {},
                     textTheme: textTheme,
-                    color: Colors.red
+                    color: Colors.red,
                   ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

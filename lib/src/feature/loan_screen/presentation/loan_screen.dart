@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoanScreen extends StatelessWidget{
+class LoanScreen extends StatelessWidget {
   const LoanScreen({super.key});
 
   @override
