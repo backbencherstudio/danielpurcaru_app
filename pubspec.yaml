@@ -42,6 +42,7 @@ dependencies:
   fluttertoast: ^8.2.12
   flutter_svg: ^2.2.0
   intl: ^0.20.2
+  horizontal_list_calendar: ^0.1.0
 
 dev_dependencies:
   flutter_test:

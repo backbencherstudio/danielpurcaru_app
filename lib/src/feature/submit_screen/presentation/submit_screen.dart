@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SubmitScreen extends StatelessWidget{
+class SubmitScreen extends StatelessWidget {
   const SubmitScreen({super.key});
 
   @override

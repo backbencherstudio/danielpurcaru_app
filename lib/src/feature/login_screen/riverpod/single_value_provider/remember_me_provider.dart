@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 class RememberMeNotifier extends StateNotifier<bool> {
   RememberMeNotifier() : super(false); // Default is unchecked
 
@@ -10,6 +9,8 @@ class RememberMeNotifier extends StateNotifier<bool> {
   }
 }
 
-final rememberMeProvider = StateNotifierProvider<RememberMeNotifier, bool>((ref) {
+final rememberMeProvider = StateNotifierProvider<RememberMeNotifier, bool>((
+  ref,
+) {
   return RememberMeNotifier();
 });

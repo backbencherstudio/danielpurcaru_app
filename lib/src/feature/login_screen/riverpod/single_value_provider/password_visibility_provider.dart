@@ -9,6 +9,7 @@ class PasswordVisibilityNotifier extends StateNotifier<bool> {
   }
 }
 
-final passwordVisibilityProvider = StateNotifierProvider<PasswordVisibilityNotifier, bool>((ref) {
-  return PasswordVisibilityNotifier();
-});
+final passwordVisibilityProvider =
+    StateNotifierProvider<PasswordVisibilityNotifier, bool>((ref) {
+      return PasswordVisibilityNotifier();
+    });
