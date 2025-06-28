@@ -13,7 +13,7 @@ class AppEvaluatedButtonThemes {
       foregroundColor: Colors.white,
       backgroundColor: AppColorScheme.primary,
       textStyle: GoogleFonts.urbanist(
-        textStyle: TextStyle(fontSize: 15.sp,),
+        textStyle: TextStyle(fontSize: 15.sp),
         color: Colors.white,
         fontWeight: FontWeight.w600,
       ),

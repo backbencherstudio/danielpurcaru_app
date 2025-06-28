@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class RecordingScreen extends StatelessWidget{
+class RecordingScreen extends StatelessWidget {
   const RecordingScreen({super.key});
 
   @override
