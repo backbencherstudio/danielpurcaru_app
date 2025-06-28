@@ -20,6 +20,7 @@ class RecordingScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAppBar(title: 'Company Name'),
+          SizedBox(height: 24.h,),
           Calendar(),
           Expanded(
             child: Padding(

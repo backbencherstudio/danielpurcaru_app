@@ -9,8 +9,27 @@ import 'package:horizontal_list_calendar/horizontal_list_calendar.dart';
 import '../../../common_widgets/custom_app_bar/custom_app_bar.dart';
 import '../../calendar/calendar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  //late final ScrollController scrollController;
+
+  @override
+  void initState() {
+    // scrollController = ScrollController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             UserWorkSummary(),
             SizedBox(height: 16.h),
             MonthWorkSummary(),
-            SizedBox(height: 100.h,)
+            SizedBox(height: 100.h),
           ],
         ),
       ),
