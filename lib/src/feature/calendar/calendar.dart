@@ -40,7 +40,7 @@ class _CalendarState extends State<Calendar> {
         ),
         child: HorizontalListCalendar(
           scrollController: scrollController,
-          canSelectDate: true,
+          canSelectDate: false,
           monthChangeButton: false,
           moveToNextMonthIconBackgroundColor: AppColorScheme.primary,
           moveToPreviousMonthIconBackgroundColor: AppColorScheme.primary,
