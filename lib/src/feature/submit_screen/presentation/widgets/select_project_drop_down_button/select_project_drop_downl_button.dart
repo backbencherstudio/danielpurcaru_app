@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../common_widgets/custom_popup_menu/custom_popup_menu.dart';
 
-class SelectAreaDropDownButton extends StatelessWidget {
-  SelectAreaDropDownButton({super.key});
+class SelectProjectDropDownButton extends StatelessWidget {
+  SelectProjectDropDownButton({super.key});
 
   final _key = GlobalKey();
   @override
@@ -17,7 +17,13 @@ class SelectAreaDropDownButton extends StatelessWidget {
         final result = await customPopupMenu(
           context: context,
           key: _key,
-          areas: {"Portugal", "USA", "Bangladesh", "UK"},
+          areas: {
+            "Project 01",
+            "Project 02",
+            "Project 03",
+            "Project 04",
+            "Project 05",
+          },
         );
       },
       child: Container(
@@ -33,9 +39,8 @@ class SelectAreaDropDownButton extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(Icons.location_on_outlined, color: AppColorScheme.onSurface),
             Text(
-              "Select the area",
+              "Select the Project",
               style: textTheme.bodyMedium?.copyWith(
                 color: AppColorScheme.onSurface,
               ),

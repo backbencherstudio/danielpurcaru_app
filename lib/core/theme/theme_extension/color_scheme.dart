@@ -13,6 +13,8 @@ class AppColorScheme {
   static const Color textColor = Color(0xff1D1F2C);
   static const Color secondaryTextColor = Color(0xff4A4C56);
   static const Color labelTextColor = Color(0xff777980);
+  static const Color borderColor = Color(0xffE9E9EA);
+  static const Color shadowColor = Color.fromRGBO(0, 0, 0, 0.10);
 
   static ColorScheme colorScheme = ColorScheme.light(
     primary: primary,
