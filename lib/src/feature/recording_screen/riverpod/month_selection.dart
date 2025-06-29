@@ -11,6 +11,6 @@ class MonthSelectorNotifier extends StateNotifier<MonthName?> {
   Future<void> selectMonth(int index) async {
     state = MonthName.values[index];
 
-    await Future.delayed(Duration(milliseconds: 500));
+    await Future.delayed(Duration(milliseconds: 200));
   }
 }
