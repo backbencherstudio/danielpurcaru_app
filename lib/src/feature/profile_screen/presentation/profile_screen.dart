@@ -1,8 +1,10 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/icons.dart';
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
+import 'package:danielpurcaru_time_tracker_app/core/routes/route_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../common_widgets/custom_app_bar/custom_app_bar.dart';
 
@@ -72,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                   customListTile(
                     title: "Logout",
                     iconPath: AppIcons.logOut,
-                    onTap: () {},
+                    onTap: ()=> context.go(RouteName.loginScreen),
                     textTheme: textTheme,
                     color: Colors.red,
                   ),
