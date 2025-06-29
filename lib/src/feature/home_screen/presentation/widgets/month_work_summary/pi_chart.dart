@@ -17,8 +17,8 @@ class PiChart extends StatelessWidget{
           Align(
             alignment: Alignment.center,
             child: Container(
-              width: 70.h,
-              height: 70.h,
+              width: 75.h,
+              height: 75.h,
               padding: EdgeInsets.symmetric(vertical: 9.h),
               decoration: BoxDecoration(
                 color: AppColorScheme.textColor,
