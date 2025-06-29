@@ -2,7 +2,7 @@ part of 'route_import_part.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.recordingScreen,
+    initialLocation: RouteName.loginScreen,
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
