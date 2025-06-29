@@ -4,7 +4,9 @@ import '../../../../../core/constant/padding.dart';
 import '../../../../../core/theme/theme_extension/color_scheme.dart';
 
 class UserWorkSummary extends StatelessWidget {
-  const UserWorkSummary({super.key});
+  final bool isHeading;
+  final bool rateShow;
+  const UserWorkSummary({super.key, this.isHeading = true, this.rateShow = true});
 
   Widget _summaryContainer({
     required String title,
@@ -42,6 +44,7 @@ class UserWorkSummary extends StatelessWidget {
       padding: AppPadding.horizontalPadding,
       child: Column(
         children: [
+          if(isHeading)
           Container(
             padding: EdgeInsets.all(16.r),
             width: double.infinity,
@@ -68,7 +71,7 @@ class UserWorkSummary extends StatelessWidget {
               ],
             ),
           ),
-
+          if(isHeading)
           SizedBox(height: 16.h),
           Row(
             spacing: 12.w,
@@ -78,13 +81,14 @@ class UserWorkSummary extends StatelessWidget {
                 textTheme: textTheme,
                 body: "150",
               ),
+              if(rateShow)
               _summaryContainer(
                 title: "Per Hours",
                 textTheme: textTheme,
                 body: "\$10",
               ),
               _summaryContainer(
-                title: "Earning",
+                title: rateShow ?"Earning" : "Total Earning",
                 textTheme: textTheme,
                 body: "\$1500",
               ),

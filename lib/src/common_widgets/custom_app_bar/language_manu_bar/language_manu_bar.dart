@@ -44,7 +44,7 @@ class LanguageManuBar extends StatelessWidget {
               position: RelativeRect.fromLTRB(
                 offset.dx,
                 offset.dy + size.height,
-                offset.dx + size.width,
+                20.w,
                 offset.dy,
               ),
               items: [
