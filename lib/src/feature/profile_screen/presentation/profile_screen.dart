@@ -6,6 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/services/chache/shared_preferences_services.dart';
+import '../../../../core/services/chache/shared_preferences_services_impl.dart';
 import '../../../common_widgets/custom_app_bar/custom_app_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -74,7 +76,11 @@ class ProfileScreen extends StatelessWidget {
                   customListTile(
                     title: "Logout",
                     iconPath: AppIcons.logOut,
-                    onTap: ()=> context.go(RouteName.loginScreen),
+                    onTap: () async {
+                      final prefs = await SharedPreferencesServiceImpl.create();
+                      prefs.remove([CacheKey.authToken]);
+                      context.go(RouteName.loginScreen);
+                    },
                     textTheme: textTheme,
                     color: Colors.red,
                   ),

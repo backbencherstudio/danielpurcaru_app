@@ -10,6 +10,7 @@ import '../../src/common_widgets/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../src/feature/home_screen/presentation/home_screen.dart';
 import '../../src/feature/login_screen/presentation/login_screen.dart';
 import '../../src/feature/recording_screen/presentation/screens/time_recording_history/time_recording_history.dart';
+import '../../src/feature/splash_screen/splash_screen.dart';
 import 'build_page_with_transition.dart';
 
 part 'route_config.dart';
