@@ -2,7 +2,7 @@ part of 'route_import_part.dart';
 
 class RouteConfig {
   GoRouter goRouter = GoRouter(
-    initialLocation: RouteName.loginScreen,
+    initialLocation: RouteName.splashScreen,
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
@@ -84,6 +84,13 @@ class RouteConfig {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        name: RouteName.splashScreen,
+        path: RouteName.splashScreen,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: SplashScreen());
+        },
       ),
       GoRoute(
         name: RouteName.loginScreen,
