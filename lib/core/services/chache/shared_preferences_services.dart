@@ -1,10 +1,11 @@
 enum CacheKey{
   authToken,
+  employeeId,
 }
 
 abstract class SharedPreferencesService{
   Future<void> save<T>({required CacheKey key, required T value});
-  T? get<T>({required CacheKey key});
+  T? fetch<T>({required CacheKey key});
   Future<void> remove(List<CacheKey> keys);
   Future<void> clear();
 }

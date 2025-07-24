@@ -12,6 +12,8 @@ class CustomInputField extends StatelessWidget {
   final TextTheme textTheme;
   final bool isMiddle;
   final int flex;
+  final bool enable;
+  final VoidCallback? onTap;
 
   const CustomInputField({
     super.key,
@@ -23,6 +25,8 @@ class CustomInputField extends StatelessWidget {
     required this.textTheme,
     this.isMiddle = false,
     this.flex = 1,
+    this.enable = true,
+    this.onTap,
   });
 
   void onChanged({
@@ -76,24 +80,28 @@ class CustomInputField extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          child: TextFormField(
-                            controller: controller,
-                            focusNode: focusNode,
-                            onTapOutside: (_) => focusNode.unfocus(),
-                            onChanged: (value) => onChanged(
-                              value: value,
+                          child: GestureDetector(
+                            onTap: onTap,
+                            child: TextFormField(
                               controller: controller,
                               focusNode: focusNode,
-                            ),
-
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                vertical: 9.h,
+                              enabled: enable,
+                              onTapOutside: (_) => focusNode.unfocus(),
+                              onChanged: (value) => onChanged(
+                                value: value,
+                                controller: controller,
+                                focusNode: focusNode,
                               ),
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              border: InputBorder.none,
-                              hintText: "12.00",
+
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                  vertical: 9.h,
+                                ),
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                border: InputBorder.none,
+                                hintText: "12.00",
+                              ),
                             ),
                           ),
                         ),
@@ -104,44 +112,52 @@ class CustomInputField extends StatelessWidget {
                         ),
 
                         Expanded(
-                          child: TextFormField(
-                            focusNode: midFocusNode,
-                            onTapOutside: (_) => midFocusNode.unfocus(),
-                            controller: midLastController,
-                            onChanged: (value) => onChanged(
-                              value: value,
-                              controller: midLastController,
+                          child: GestureDetector(
+                            onTap: onTap,
+                            child: TextFormField(
                               focusNode: midFocusNode,
-                            ),
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                vertical: 9.h,
-                                horizontal: 2.w,
+                              onTapOutside: (_) => midFocusNode.unfocus(),
+                              controller: midLastController,
+                              enabled: enable,
+                              onChanged: (value) => onChanged(
+                                value: value,
+                                controller: midLastController,
+                                focusNode: midFocusNode,
                               ),
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              border: InputBorder.none,
-                              hintText: "13.00",
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                  vertical: 9.h,
+                                  horizontal: 2.w,
+                                ),
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                border: InputBorder.none,
+                                hintText: "13.00",
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
                   )
-                : TextFormField(
-                    focusNode: focusNode,
-                    onTapOutside: (_) => focusNode.unfocus(),
-                    controller: controller,
-                    onChanged: (value) => onChanged(
-                      value: value,
-                      controller: controller,
+                : GestureDetector(
+                    onTap: onTap,
+                    child: TextFormField(
                       focusNode: focusNode,
-                    ),
-                    decoration: InputDecoration(
-                      hintText: "$title time",
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: 9.h,
-                        horizontal: 8.w,
+                      onTapOutside: (_) => focusNode.unfocus(),
+                      controller: controller,
+                      enabled: enable,
+                      onChanged: (value) => onChanged(
+                        value: value,
+                        controller: controller,
+                        focusNode: focusNode,
+                      ),
+                      decoration: InputDecoration(
+                        hintText: "$title time",
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 9.h,
+                          horizontal: 8.w,
+                        ),
                       ),
                     ),
                   ),

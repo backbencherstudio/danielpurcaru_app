@@ -1,17 +1,17 @@
 class DayRecord {
+  final String employeeId;
   final DateTime date;
   final DateTime? startTime;
-  final DateTime? lunchStartTime;
-  final DateTime? lunchEndTime;
+  final String? lunchTime;
   final DateTime? endTime;
   final String totalHours;
   final double earning;
 
   DayRecord({
+    required this.employeeId,
     required this.date,
     this.startTime,
-    this.lunchStartTime,
-    this.lunchEndTime,
+    this.lunchTime,
     this.endTime,
     required this.totalHours,
     required this.earning,
@@ -19,36 +19,41 @@ class DayRecord {
 
   /// Convert a JSON map to a DayRecord object
   factory DayRecord.fromJson(Map<String, dynamic> json) {
+    bool isValidDate(String? value) {
+      if (value == null || value.trim() == '' || value.trim() == '----') return false;
+      try {
+        DateTime.parse(value);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
     return DayRecord(
-      date: DateTime.parse(json['date']),
-      startTime: json['startTime'] != null
-          ? DateTime.parse(json['startTime'])
-          : null,
-      lunchStartTime: json['lunchStartTime'] != null
-          ? DateTime.parse(json['lunchStartTime'])
-          : null,
-      lunchEndTime: json['lunchEndTime'] != null
-          ? DateTime.parse(json['lunchEndTime'])
-          : null,
-      endTime: json['endTime'] != null ? DateTime.parse(json['endTime']) : null,
-      totalHours: json['totalHours'] ?? 'No Record',
+      employeeId: json['id'] ?? '',
+      date: DateTime.parse(json['date']), // Assuming this is always valid
+      startTime: isValidDate(json['start_time']) ? DateTime.parse(json['start_time']) : null,
+      lunchTime: json['lunch'] ?? '---',
+      endTime: isValidDate(json['end_time']) ? DateTime.parse(json['end_time']) : null,
+      totalHours: json['total'] ?? 'No Record',
       earning: json['earning'] != null
           ? (json['earning'] is double
-                ? json['earning']
-                : double.tryParse(json['earning'].toString()) ?? 0.0)
+          ? json['earning']
+          : double.tryParse(json['earning'].toString()) ?? 0.0)
           : 0.0,
     );
   }
 
+
   /// Convert a DayRecord object to a JSON map
   Map<String, dynamic> toJson() {
     return {
+      'id': employeeId,
       'date': date.toIso8601String(),
-      'startTime': startTime?.toIso8601String(),
-      'lunchStartTime': lunchStartTime?.toIso8601String(),
-      'lunchEndTime': lunchEndTime?.toIso8601String(),
-      'endTime': endTime?.toIso8601String(),
-      'totalHours': totalHours,
+      'start_time': startTime?.toIso8601String(),
+      'lunch': lunchTime,
+      'end_time': endTime?.toIso8601String(),
+      'total': totalHours,
       'earning': earning,
     };
   }

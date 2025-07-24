@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/theme/theme_extension/color_scheme.dart';
+import '../../../../../../data/provider/month_chart_repository_provider.dart';
 
-class PiChart extends StatelessWidget{
+class PiChart extends ConsumerWidget {
   const PiChart({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
+    final monthChart = ref.watch(monthChartProvider);
+
     return SizedBox(
       width: 140.h,
       height: 140.h,
@@ -28,7 +32,7 @@ class PiChart extends StatelessWidget{
                 spacing: 2.h,
                 children: [
                   Text(
-                    "22",
+                    monthChart.totalWorkingDays.toString(),
                     style: textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
@@ -36,9 +40,7 @@ class PiChart extends StatelessWidget{
                   ),
                   Text(
                     "Day",
-                    style: textTheme.labelLarge?.copyWith(
-                      color: Colors.white,
-                    ),
+                    style: textTheme.labelLarge?.copyWith(color: Colors.white),
                   ),
                 ],
               ),
@@ -49,8 +51,8 @@ class PiChart extends StatelessWidget{
             alignment: Alignment.center,
 
             child: CircularProgressIndicator(
-              strokeWidth: 22,
-              value: 0.7,
+              strokeWidth: monthChart.totalWorkingDays.toDouble(),
+              value: monthChart.percentComplete / 100,
               color: Color(0xff1A9882),
               backgroundColor: Color(0xffEB3D4D),
               constraints: BoxConstraints(
