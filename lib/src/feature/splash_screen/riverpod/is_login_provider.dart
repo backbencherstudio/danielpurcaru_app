@@ -4,6 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final isLoggedInProvider = FutureProvider<bool>((ref) async {
   final prefs = await SharedPreferencesServiceImpl.create();
-  final token = prefs.get(key: CacheKey.authToken);
+  final token = prefs.fetch(key: CacheKey.authToken);
   return token != null;
 });

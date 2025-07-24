@@ -3,28 +3,36 @@ import 'package:danielpurcaru_time_tracker_app/src/feature/submit_screen/present
 import 'package:danielpurcaru_time_tracker_app/src/feature/submit_screen/presentation/widgets/submit_input_form/submit_input_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:horizontal_list_calendar/horizontal_list_calendar.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../core/constant/padding.dart';
-import '../../../../core/theme/theme_extension/color_scheme.dart';
+
 import '../../../common_widgets/custom_app_bar/custom_app_bar.dart';
 import '../../calendar/calendar.dart';
 import '../../home_screen/presentation/widgets/user_work_summary.dart';
+import '../data/riverpod/project_riverpod.dart';
 
-class SubmitScreen extends StatefulWidget {
+class SubmitScreen extends ConsumerStatefulWidget {
   const SubmitScreen({super.key});
 
   @override
-  State<SubmitScreen> createState() => _SubmitScreenState();
+  ConsumerState<SubmitScreen> createState() => _SubmitScreenState();
 }
 
-class _SubmitScreenState extends State<SubmitScreen> {
+class _SubmitScreenState extends ConsumerState<SubmitScreen> {
   late final ScrollController scrollController;
 
   @override
   void initState() {
-    scrollController = ScrollController();
     super.initState();
+    scrollController = ScrollController();
+
+    Future.microtask(() {
+      ref.read(projectProvider.notifier).fetchProjects(
+        userId: "cmcsy3x090000wsd4r4ap187i",
+        startDate: "2023-12-20",
+        endDate: "2023-12-20",
+      );
+    });
   }
 
   @override
@@ -37,14 +45,15 @@ class _SubmitScreenState extends State<SubmitScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        controller: scrollController,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(title: "Company Name"),
+            const CustomAppBar(title: "Company Name"),
 
             SizedBox(height: 24.h),
 
-            Calendar(),
+            const Calendar(),
 
             SizedBox(height: 16.h),
 
@@ -52,15 +61,15 @@ class _SubmitScreenState extends State<SubmitScreen> {
 
             SizedBox(height: 16.h),
 
-            SelectProjectDropDownButton(),
+            const SelectProjectDropDownButton(),
 
             SizedBox(height: 16.h),
 
-            SubmitInputForm(),
+            const SubmitInputForm(),
 
             SizedBox(height: 16.h),
 
-            UserWorkSummary(isHeading: false,rateShow: false,),
+            const UserWorkSummary(isHeading: false, rateShow: false),
 
             SizedBox(height: 100.h),
           ],

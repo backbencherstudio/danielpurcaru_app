@@ -1,4 +1,5 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
+import 'package:danielpurcaru_time_tracker_app/data/repository/loan/loan_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -67,7 +68,10 @@ class _LoanScreenState extends State<LoanScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        LoanRepositoryImpl loanRepository = LoanRepositoryImpl();
+                        loanRepository.postLoan(amount: 100);
+                      },
                       child: Text("Apply"),
                     ),
                   ),

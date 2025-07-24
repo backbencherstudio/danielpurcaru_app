@@ -1,14 +1,14 @@
 import 'package:danielpurcaru_time_tracker_app/core/services/network/api_services.dart';
-import 'package:danielpurcaru_time_tracker_app/data/repository/auth_repository.dart';
+import 'package:danielpurcaru_time_tracker_app/data/jwt_token_decoder/jwt_token_decoder.dart';
+import 'package:danielpurcaru_time_tracker_app/data/repository/auth/auth_repository.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../../../../../core/routes/route_const.dart';
-import '../../../../../core/services/chache/shared_preferences_services.dart';
-import '../../../../../core/services/chache/shared_preferences_services_impl.dart'
-    show SharedPreferencesServiceImpl;
-import '../../../../../core/services/network/api_endpoints.dart';
-import '../../../../../core/theme/theme_extension/color_scheme.dart';
-import '../../../../../core/utils/utils.dart';
+import '../../../core/routes/route_const.dart';
+import '../../../core/services/chache/shared_preferences_services.dart';
+import '../../../core/services/chache/shared_preferences_services_impl.dart';
+import '../../../core/services/network/api_endpoints.dart';
+import '../../../core/theme/theme_extension/color_scheme.dart';
+import '../../../core/utils/utils.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   ApiServices apiService = ApiServices.instance;
@@ -39,18 +39,22 @@ class AuthRepositoryImpl extends AuthRepository {
         key: CacheKey.authToken,
         value: response['authorization']['token'],
       );
-
+      await sharedPrefs.save(
+        key: CacheKey.employeeId,
+        value: JwtTokenDecoder.getSub(response['authorization']['token']),
+      );
+      //debugPrint();
+      debugPrint('Employ id: ${JwtTokenDecoder.getSub(response['authorization']['token'])}');
       Utils.showToast(
         message: 'Logged in successfully',
         backgroundColor: AppColorScheme.successful,
         textColor: AppColorScheme.onError,
       );
       return RouteName.homeScreen;
-    }else{
+    } else {
       debugPrint('Auth Login Error: ${response['message']}');
       return '';
     }
-
   }
 
   @override

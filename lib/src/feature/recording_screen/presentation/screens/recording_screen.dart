@@ -2,13 +2,15 @@ import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
 import 'package:danielpurcaru_time_tracker_app/core/routes/route_const.dart';
 import 'package:danielpurcaru_time_tracker_app/data/month_name/moth_names.dart';
 import 'package:danielpurcaru_time_tracker_app/src/common_widgets/custom_app_bar/custom_app_bar.dart';
-import 'package:danielpurcaru_time_tracker_app/src/feature/recording_screen/riverpod/month_selection.dart' hide MonthName;
+import 'package:danielpurcaru_time_tracker_app/src/feature/recording_screen/riverpod/month_selection.dart'
+    hide MonthName;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../calendar/calendar.dart';
+import '../../riverpod/month_repository_provider.dart';
 import '../widgets/month_cell_widget.dart';
 
 class RecordingScreen extends StatelessWidget {
@@ -20,7 +22,7 @@ class RecordingScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAppBar(title: 'Company Name'),
-          SizedBox(height: 24.h,),
+          SizedBox(height: 24.h),
           Calendar(),
           Expanded(
             child: Padding(
@@ -42,12 +44,18 @@ class RecordingScreen extends StatelessWidget {
                     builder: (context, ref, _) {
                       final selectedMonth = ref.watch(monthSelectionProvider);
 
-                      bool isSelected = selectedMonth.toString().split('.').last == MonthName.values[index].toString().split('.').last;
+                      bool isSelected =
+                          selectedMonth.toString().split('.').last ==
+                          MonthName.values[index].toString().split('.').last;
 
                       return GestureDetector(
-                        onTap: ()async {
-                          await ref.read(monthSelectionProvider.notifier)
+                        onTap: () async {
+                          await ref
+                              .read(monthSelectionProvider.notifier)
                               .selectMonth(index);
+                          ref
+                              .read(monthRecordRepositoryProvider.notifier)
+                              .fetchMonthRecords(index+1);
                           context.push(RouteName.timeRecordingHistory);
                         },
                         child: MonthCellWidget(

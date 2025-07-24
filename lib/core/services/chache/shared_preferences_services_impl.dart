@@ -19,7 +19,7 @@ class SharedPreferencesServiceImpl extends SharedPreferencesService {
   }
 
   @override
-  T? get<T>({required CacheKey key}) {
+  T? fetch<T>({required CacheKey key}) {
     return switch (T) {
       const (String) => prefs.getString(key.name) as T?,
       const (int) => prefs.getInt(key.name) as T?,

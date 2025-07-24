@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../auth_repository_impl/auth_repository_impl.dart';
+import '../../../../../data/repository/auth/auth_repository_impl.dart';
 
 final authControllerProvider = AsyncNotifierProvider<AuthController, void>(
   () => AuthController(),
@@ -19,7 +19,7 @@ class AuthController extends AsyncNotifier<void> {
     required String email,
     required String password,
   }) async {
-    state = const AsyncLoading(); // ⏳ show loading
+    state = const AsyncLoading();
     try {
       final route = await _authRepository.login(
         email: email,

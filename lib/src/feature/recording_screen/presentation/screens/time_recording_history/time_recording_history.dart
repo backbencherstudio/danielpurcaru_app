@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_scheme.dart';
 import 'package:danielpurcaru_time_tracker_app/data/model/month_records.dart';
@@ -7,20 +8,19 @@ import 'package:intl/intl.dart';
 import '../../../../../../data/dummy_data/jan_month_data.dart';
 import '../../../../../../core/utils/utils.dart';
 import '../../../../../common_widgets/custom_app_bar/custom_app_bar.dart';
+import '../../../riverpod/month_repository_provider.dart';
 import '../../widgets/statistic_section.dart';
 import 'show_earning_dialog.dart';
 
-class TimeRecordingHistory extends StatelessWidget {
+class TimeRecordingHistory extends ConsumerWidget {
   const TimeRecordingHistory({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     TextTheme textTheme = Theme.of(context).textTheme;
 
     // Convert JSON data to DayRecord objects
-    List<DayRecord> dayRecords = (janMonthData["records"] as List<dynamic>)
-        .map<DayRecord>((json) => DayRecord.fromJson(json))
-        .toList();
+    List<DayRecord> dayRecords = ref.watch(monthRecordRepositoryProvider);
     final MonthRecords monthRecords = MonthRecords.fromJson(
       janMonthData['summary'] as Map<String, dynamic>,
     );
@@ -109,13 +109,7 @@ class TimeRecordingHistory extends StatelessWidget {
                               DataCell(
                                 GestureDetector(
                                   onTap: () => showEarningDialog(context, record), // Show dialog when row is tapped
-                                  child: Text(
-                                    Utils.formatLunchTime(
-                                      record.lunchStartTime,
-                                      record.lunchEndTime,
-                                      true,
-                                    ),
-                                  ),
+                                  child: Text(record.lunchTime ?? '---'),
                                 ),
                               ),
                               DataCell(GestureDetector(
