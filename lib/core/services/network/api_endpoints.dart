@@ -7,5 +7,5 @@ class ApiEndpoints {
   static const String attendancePost = 'attendance';
   static const String loan = 'employee-loan';
   static const String project = 'project';
-  static const String user = 'employee';
+  static const String user = 'auth/me';
 }

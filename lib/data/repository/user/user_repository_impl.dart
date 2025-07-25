@@ -13,8 +13,7 @@ class UserRepositoryImpl extends UserRepository{
     try {
       final sharedPrefs = await SharedPreferencesServiceImpl.create();
       final String userId = sharedPrefs.fetch(key: CacheKey.employeeId);
-      //final String authToken = sharedPrefs.fetch(key: CacheKey.authToken);
-      final String authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5pcm9iQGdtYWlsLmNvbSIsInN1YiI6ImNtZDlycmZlaTAwMDBqaDR3bDdla2puazIiLCJpYXQiOjE3NTI5MDA2NTMsImV4cCI6MTc1Mjk4NzA1M30.q2yG7aJO6EIrpT_uk9CXkzJe4dAF86EbbT7riC9Sb1A';
+      final String authToken = sharedPrefs.fetch(key: CacheKey.authToken);
 
       debugPrint(userId);
       debugPrint(authToken);
@@ -29,7 +28,7 @@ class UserRepositoryImpl extends UserRepository{
       };
 
       final response = await ApiServices.fetchData(
-        endPoints: '${ApiEndpoints.user}/$userId',
+        endPoints: ApiEndpoints.user,
         headers: headers,
       );
 
