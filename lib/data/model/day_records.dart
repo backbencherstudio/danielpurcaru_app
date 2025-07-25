@@ -1,9 +1,9 @@
 class DayRecord {
   final String employeeId;
   final DateTime date;
-  final DateTime? startTime;
+  final String? startTime;
   final String? lunchTime;
-  final DateTime? endTime;
+  final String? endTime;
   final String totalHours;
   final double earning;
 
@@ -32,9 +32,9 @@ class DayRecord {
     return DayRecord(
       employeeId: json['id'] ?? '',
       date: DateTime.parse(json['date']), // Assuming this is always valid
-      startTime: isValidDate(json['start_time']) ? DateTime.parse(json['start_time']) : null,
+      startTime: json['start_time'] ??'',
       lunchTime: json['lunch'] ?? '---',
-      endTime: isValidDate(json['end_time']) ? DateTime.parse(json['end_time']) : null,
+      endTime: json['end_time'] ??'',
       totalHours: json['total'] ?? 'No Record',
       earning: json['earning'] != null
           ? (json['earning'] is double
@@ -50,9 +50,9 @@ class DayRecord {
     return {
       'id': employeeId,
       'date': date.toIso8601String(),
-      'start_time': startTime?.toIso8601String(),
+      'start_time': startTime,
       'lunch': lunchTime,
-      'end_time': endTime?.toIso8601String(),
+      'end_time': endTime,
       'total': totalHours,
       'earning': earning,
     };
