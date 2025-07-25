@@ -56,9 +56,17 @@ class Utils {
   /// Combines a date string ("2025-07-20") and a time string ("6:50 PM") into ISO8601 datetime string.
   static String combineDateAndTime(String date, String timeStr) {
     final time = parseTime(timeStr);
-    final dateTime = DateTime.parse(date).copyWith(hour: time.hour, minute: time.minute);
-    // return without milliseconds for API compatibility
-    return dateTime.toIso8601String().split('.').first;
+    final dateTimeLocal = DateTime.parse(date).copyWith(hour: time.hour, minute: time.minute);
+
+    final dateTimeUtc = DateTime.utc(
+      dateTimeLocal.year,
+      dateTimeLocal.month,
+      dateTimeLocal.day,
+      dateTimeLocal.hour,
+      dateTimeLocal.minute,
+    );
+
+    return dateTimeUtc.toIso8601String().split('.').first;
   }
 }
 

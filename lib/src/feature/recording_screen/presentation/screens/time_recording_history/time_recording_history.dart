@@ -95,7 +95,7 @@ class TimeRecordingHistory extends ConsumerWidget {
                                   onTap: () => showEarningDialog(context, record), // Show dialog when row is tapped
                                   child: Text(
                                     DateFormat('MMM d').format(record.date),
-                                    style: textTheme.bodyMedium!.copyWith(
+                                    style: textTheme.bodySmall!.copyWith(
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
@@ -104,7 +104,7 @@ class TimeRecordingHistory extends ConsumerWidget {
                               DataCell(
                                 GestureDetector(
                                     onTap: () => showEarningDialog(context, record), // Show dialog when row is tapped
-                                    child: Text(Utils.formatTime(record.startTime))),
+                                    child: Text(record.startTime.toString())),
                               ),
                               DataCell(
                                 GestureDetector(
@@ -114,7 +114,7 @@ class TimeRecordingHistory extends ConsumerWidget {
                               ),
                               DataCell(GestureDetector(
                                   onTap: () => showEarningDialog(context, record), // Show dialog when row is tapped
-                                  child: Text(Utils.formatTime(record.endTime)))),
+                                  child: Text(record.endTime.toString()))),
                               DataCell(GestureDetector(
                                   onTap: () => showEarningDialog(context, record), // Show dialog when row is tapped
                                   child: Text(record.totalHours))),

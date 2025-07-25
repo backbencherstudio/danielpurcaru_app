@@ -1,11 +1,11 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
 import 'package:danielpurcaru_time_tracker_app/core/utils/utils.dart';
-import 'package:danielpurcaru_time_tracker_app/data/repository/project/project_reository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import '../../../../../../data/repository/attendance/attendance_repository_impl.dart';
-import '../../../../../../data/repository/project/project_repository_impl.dart';
+import '../../../data/riverpod/address_selection_provider.dart';
 import '../../../data/riverpod/project_riverpod.dart';
 import 'custom_input_field.dart';
 
@@ -160,16 +160,15 @@ class _SubmitInputFormState extends State<SubmitInputForm> {
                         .watch(selectedProjectProvider)!
                         .id
                         .toString();
-                    final date = "2025-07-24"; // Your selected date
-                    final address = "123 Office Park, Remote"; // Your address
+                    final date = DateFormat(
+                      'yyyy-MM-dd',
+                    ).format(DateTime.now()).toString();
+                    final address = ref.watch(addressSelectionProvider);
 
-                    final startTimeRaw =
-                        startTimeController.text; // e.g. "6:50 PM"
-                    final lunchStartRaw =
-                        lunchStartTimeController.text; // e.g. "10:50 PM"
-                    final lunchEndRaw =
-                        lunchEndTimeController.text; // e.g. "11:51 PM"
-                    final endTimeRaw = endTimeController.text; // e.g. "6:51 PM"
+                    final startTimeRaw = startTimeController.text;
+                    final lunchStartRaw = lunchStartTimeController.text;
+                    final lunchEndRaw = lunchEndTimeController.text;
+                    final endTimeRaw = endTimeController.text;
 
                     final startTime = Utils.combineDateAndTime(
                       date,

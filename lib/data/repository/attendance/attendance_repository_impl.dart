@@ -73,6 +73,7 @@ class AttendanceRepositoryImpl extends AttendanceRepository {
       );
 
       if (response['success'] == true) {
+        debugPrint('Response: $response');
         debugPrint('Attendance submitted successfully');
       } else {
         final message = response['message'] ?? 'Failed to submit attendance';
