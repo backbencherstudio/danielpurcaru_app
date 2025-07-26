@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/constant/padding.dart';
 import '../../../../../core/theme/theme_extension/color_scheme.dart';
+import '../../../../../l10n/app_localizations.dart';
 import '../../data/provider/employee_summery_provider.dart';
 
 class UserWorkSummary extends StatelessWidget {
@@ -51,7 +52,7 @@ class UserWorkSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-
+    final language = AppLocalizations.of(context);
     return Padding(
       padding: AppPadding.horizontalPadding,
       child: Consumer(
@@ -93,18 +94,18 @@ class UserWorkSummary extends StatelessWidget {
                 spacing: 12.w,
                 children: [
                   _summaryContainer(
-                    title: "Total Hours",
+                    title: language!.totalHours,
                     textTheme: textTheme,
                     body: employeeSummary.totalHours.toString(),
                   ),
                   if (rateShow)
                     _summaryContainer(
-                      title: "Per Hour",
+                      title: language.perHour,
                       textTheme: textTheme,
                       body: "\$${employeeSummary.parHours.toStringAsFixed(2)}",
                     ),
                   _summaryContainer(
-                    title: rateShow ? "Earning" : "Total Earning",
+                    title: rateShow ? language.earning : language.totalEarning,
                     textTheme: textTheme,
                     body: "\$${employeeSummary.earning.toStringAsFixed(2)}",
                   ),

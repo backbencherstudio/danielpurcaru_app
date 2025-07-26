@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../data/provider/month_chart_repository_provider.dart';
+import '../../../../../../l10n/app_localizations.dart';
 
 class MonthWorkSummary extends StatelessWidget {
   const MonthWorkSummary({super.key});
@@ -13,6 +14,7 @@ class MonthWorkSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final language = AppLocalizations.of(context);
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
@@ -27,7 +29,7 @@ class MonthWorkSummary extends StatelessWidget {
         spacing: 20.h,
         children: [
           Text(
-            "Month",
+            language!.month,
             style: textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w700),
           ),
           Row(
@@ -45,7 +47,7 @@ class MonthWorkSummary extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Status",
+                              language.status,
                               style: textTheme.bodyMedium?.copyWith(
                                 color: AppColorScheme.labelTextColor,
                                 fontWeight: FontWeight.w500,
@@ -73,7 +75,7 @@ class MonthWorkSummary extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Complete",
+                              language.complete,
                               style: textTheme.bodyMedium?.copyWith(
                                 color: AppColorScheme.secondaryTextColor,
                               ),
@@ -99,7 +101,7 @@ class MonthWorkSummary extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Unfinished",
+                              language.unfinished,
                               style: textTheme.bodyMedium?.copyWith(
                                 color: AppColorScheme.secondaryTextColor,
                               ),

@@ -1,5 +1,7 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
 import 'package:danielpurcaru_time_tracker_app/core/utils/utils.dart';
+import 'package:danielpurcaru_time_tracker_app/l10n/app_localizations.dart';
+import 'package:danielpurcaru_time_tracker_app/l10n/app_localizations_en.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -55,6 +57,7 @@ class _SubmitInputFormState extends State<SubmitInputForm> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final language = AppLocalizations.of(context);
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
@@ -72,7 +75,7 @@ class _SubmitInputFormState extends State<SubmitInputForm> {
               CustomInputField(
                 focusNode: focusNode,
                 textTheme: textTheme,
-                title: "Start",
+                title: language!.start,
                 controller: startTimeController,
                 enable: false,
                 onTap: () async {
@@ -92,7 +95,7 @@ class _SubmitInputFormState extends State<SubmitInputForm> {
               CustomInputField(
                 flex: 2,
                 textTheme: textTheme,
-                title: "Lunch",
+                title: language.end,
                 controller: lunchStartTimeController,
                 middleLastController: lunchEndTimeController,
                 focusNode: lunchStartFocusNode,
@@ -126,7 +129,7 @@ class _SubmitInputFormState extends State<SubmitInputForm> {
               ),
               CustomInputField(
                 textTheme: textTheme,
-                title: "End",
+                title: language.end,
                 controller: endTimeController,
                 focusNode: endTimeFocusNode,
                 enable: false,

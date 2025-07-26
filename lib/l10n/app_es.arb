@@ -1,0 +1,130 @@
+{
+  "@@locale": "es",
+
+  "hiWelcomeBack": "¡Hola! Bienvenido de nuevo",
+  "@hiWelcomeBack": {
+    "description": "Mensaje de saludo cuando el usuario abre la pantalla de inicio de sesión"
+  },
+
+  "loginToAccount": "Inicia sesión en tu cuenta",
+  "@loginToAccount": {
+    "description": "Texto para iniciar sesión en la cuenta"
+  },
+
+  "pleaseEnterUsername": "Por favor, introduce tu nombre de usuario o correo electrónico",
+  "@pleaseEnterUsername": {
+    "description": "Mensaje de validación para el nombre de usuario o correo electrónico"
+  },
+
+  "enterUsername": "Introduce tu nombre de usuario o correo electrónico",
+  "@enterUsername": {
+    "description": "Texto de marcador de posición para el campo de nombre de usuario o correo electrónico"
+  },
+
+  "pleaseEnterPassword": "Por favor, introduce tu contraseña",
+  "@pleaseEnterPassword": {
+    "description": "Mensaje de validación para la contraseña"
+  },
+
+  "enterPassword": "Introduce tu contraseña",
+  "@enterPassword": {
+    "description": "Texto de marcador de posición para el campo de contraseña"
+  },
+
+  "rememberMe": "Recuérdame",
+  "@rememberMe": {
+    "description": "Etiqueta para la casilla de verificación de recordar usuario"
+  },
+
+  "login": "Iniciar sesión",
+  "@login": {
+    "description": "Etiqueta del botón para enviar el formulario de inicio de sesión"
+  },
+
+
+
+  "totalHours": "Horas Totales",
+  "@totalHours": {
+    "description": "Etiqueta para horas totales trabajadas"
+  },
+
+  "perHour": "Por Hora",
+  "@perHour": {
+    "description": "Etiqueta que indica el pago por hora"
+  },
+
+  "earning": "Ganancia",
+  "@earning": {
+    "description": "Etiqueta para ganancia actual"
+  },
+
+  "totalEarning": "Ganancia Total",
+  "@totalEarning": {
+    "description": "Etiqueta para la ganancia acumulada total"
+  },
+  "month": "Mes",
+  "@month": {
+    "description": "Etiqueta para el mes del calendario"
+  },
+
+  "status": "Estado",
+  "@status": {
+    "description": "Etiqueta para el estado actual"
+  },
+
+  "complete": "Completado",
+  "@complete": {
+    "description": "Indica que algo está completo"
+  },
+
+  "unfinished": "Incompleto",
+  "@unfinished": {
+    "description": "Indica que algo no está terminado"
+  },
+  "day": "Día",
+  "@day": {
+    "description": "Etiqueta para un solo día"
+  },
+
+  "selectArea": "Selecciona el área",
+  "@selectArea": {
+    "description": "Mensaje para seleccionar un área"
+  },
+
+  "noProjectsAvailable": "No hay proyectos disponibles",
+  "@noProjectsAvailable": {
+    "description": "Se muestra cuando no hay proyectos"
+  },
+  "selectProject": "Selecciona el proyecto",
+  "@selectProject": {
+    "description": "Mensaje para seleccionar un proyecto"
+  },
+  "start": "Inicio",
+  "@start": {
+    "description": "Etiqueta para la hora de inicio"
+  },
+  "lunch": "Almuerzo",
+  "@lunch": {
+    "description": "Etiqueta para la hora del almuerzo"
+  },
+  "end": "Fin",
+  "@end": {
+    "description": "Etiqueta para la hora de finalización"
+  },
+  "prices": "Precios",
+  "@prices": {
+    "description": "Etiqueta para la sección de precios"
+  },
+  "apply": "Aplicar",
+  "@apply": {
+    "description": "Botón para aplicar filtros o cambios"
+  },
+  "profile": "Perfil",
+  "@profile": {
+    "description": "Etiqueta para la sección de perfil del usuario"
+  },
+  "logout": "Cerrar sesión",
+  "@logout": {
+    "description": "Botón para cerrar sesión"
+  }
+}

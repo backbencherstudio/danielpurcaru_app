@@ -20,9 +20,4 @@ final janMonthData = {
     },
 
   ],
-  "summary": {
-    "days": 18,
-    "total_hours": 150,
-    "total_earning": 1500.0
-  }
 };

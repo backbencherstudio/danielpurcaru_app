@@ -21,9 +21,6 @@ class TimeRecordingHistory extends ConsumerWidget {
 
     // Convert JSON data to DayRecord objects
     List<DayRecord> dayRecords = ref.watch(monthRecordRepositoryProvider);
-    final MonthRecords monthRecords = MonthRecords.fromJson(
-      janMonthData['summary'] as Map<String, dynamic>,
-    );
 
     return Scaffold(
       body: Column(
@@ -117,7 +114,7 @@ class TimeRecordingHistory extends ConsumerWidget {
                                   child: Text(record.endTime.toString()))),
                               DataCell(GestureDetector(
                                   onTap: () => showEarningDialog(context, record), // Show dialog when row is tapped
-                                  child: Text(record.totalHours))),
+                                  child: Text(record.totalHoursDaily))),
                             ],
                           );
                         }).toList(),
@@ -126,7 +123,7 @@ class TimeRecordingHistory extends ConsumerWidget {
                     SizedBox(height: 20.h),
 
                     // Statistics Row
-                    StatisticSection(monthRecords: monthRecords),
+                    StatisticSection(),
                   ],
                 ),
               ),

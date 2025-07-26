@@ -3,6 +3,7 @@ import 'package:danielpurcaru_time_tracker_app/data/repository/loan/loan_reposit
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../l10n/app_localizations.dart';
 import '../../../common_widgets/custom_app_bar/custom_app_bar.dart';
 
 class LoanScreen extends StatefulWidget {
@@ -32,6 +33,7 @@ class _LoanScreenState extends State<LoanScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final language = AppLocalizations.of(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +53,7 @@ class _LoanScreenState extends State<LoanScreen> {
                 spacing: 12.h,
                 children: [
                   Text(
-                    "Prices",
+                    language!.prices,
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
@@ -72,7 +74,7 @@ class _LoanScreenState extends State<LoanScreen> {
                         LoanRepositoryImpl loanRepository = LoanRepositoryImpl();
                         loanRepository.postLoan(amount: 100);
                       },
-                      child: Text("Apply"),
+                      child: Text(language.apply),
                     ),
                   ),
                 ],

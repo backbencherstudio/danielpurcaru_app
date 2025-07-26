@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/theme/theme_extension/color_scheme.dart';
 import '../../../../../../data/provider/month_chart_repository_provider.dart';
+import '../../../../../../l10n/app_localizations.dart';
 
 class PiChart extends ConsumerWidget {
   const PiChart({super.key});
@@ -12,7 +13,7 @@ class PiChart extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
     final monthChart = ref.watch(monthChartProvider);
-
+    final language = AppLocalizations.of(context);
     return SizedBox(
       width: 140.h,
       height: 140.h,
@@ -39,7 +40,7 @@ class PiChart extends ConsumerWidget {
                     ),
                   ),
                   Text(
-                    "Day",
+                    language!.day,
                     style: textTheme.labelLarge?.copyWith(color: Colors.white),
                   ),
                 ],

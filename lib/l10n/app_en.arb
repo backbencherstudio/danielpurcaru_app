@@ -1,0 +1,130 @@
+{
+  "@@locale": "en",
+
+  "hiWelcomeBack": "Hi! Welcome Back",
+  "@hiWelcomeBack": {
+    "description": "Greeting message when user opens the login screen"
+  },
+
+  "loginToAccount": "Log in to your account",
+  "@loginToAccount": {
+    "description": "Prompt to log into the account"
+  },
+
+  "pleaseEnterUsername": "Please enter your username or email",
+  "@pleaseEnterUsername": {
+    "description": "Validation message for username/email input"
+  },
+
+  "enterUsername": "Enter your Username or email",
+  "@enterUsername": {
+    "description": "Placeholder for username/email input field"
+  },
+
+  "pleaseEnterPassword": "Please enter your password",
+  "@pleaseEnterPassword": {
+    "description": "Validation message for password input"
+  },
+
+  "enterPassword": "Enter your password",
+  "@enterPassword": {
+    "description": "Placeholder for password input field"
+  },
+
+  "rememberMe": "Remember me",
+  "@rememberMe": {
+    "description": "Checkbox label to remember user credentials"
+  },
+
+  "login": "Login",
+  "@login": {
+    "description": "Button label to submit login form"
+  },
+
+
+
+
+  "totalHours": "Total Hours",
+  "@totalHours": {
+    "description": "Label for total hours worked"
+  },
+
+  "perHour": "Per Hour",
+  "@perHour": {
+    "description": "Label indicating hourly rate"
+  },
+
+  "earning": "Earning",
+  "@earning": {
+    "description": "Label for current earning"
+  },
+
+  "totalEarning": "Total Earning",
+  "@totalEarning": {
+    "description": "Label for total accumulated earning"
+  },
+
+  "month": "Month",
+  "@month": {
+    "description": "Label for calendar month"
+  },
+
+  "status": "Status",
+  "@status": {
+    "description": "Label for the current status"
+  },
+
+  "complete": "Complete",
+  "@complete": {
+    "description": "Indicates something is complete"
+  },
+
+  "unfinished": "Unfinished",
+  "@unfinished": {
+    "description": "Indicates something is not finished"
+  },
+  "day": "Day",
+  "@day": {
+    "description": "Label for a single day"
+  },
+  "selectArea": "Select the area",
+  "@selectArea": {
+    "description": "Prompt to select an area"
+  },
+  "noProjectsAvailable": "No projects available",
+  "@noProjectsAvailable": {
+    "description": "Displayed when there are no projects"
+  },
+  "selectProject": "Select the Project",
+  "@selectProject": {
+    "description": "Prompt to select a project"
+  },
+  "start": "Start",
+  "@start": {
+    "description": "Label for the start time"
+  },
+  "lunch": "Lunch",
+  "@lunch": {
+    "description": "Label for lunch time"
+  },
+  "end": "End",
+  "@end": {
+    "description": "Label for the end time"
+  },
+  "prices": "Prices",
+  "@prices": {
+    "description": "Label for the prices section"
+  },
+  "apply": "Apply",
+  "@apply": {
+    "description": "Button label to apply filters or changes"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "User profile section label"
+  },
+  "logout": "Logout",
+  "@logout": {
+    "description": "Button label to log out"
+  }
+}

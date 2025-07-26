@@ -1,6 +1,7 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/icons.dart';
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
 import 'package:danielpurcaru_time_tracker_app/core/routes/route_const.dart';
+import 'package:danielpurcaru_time_tracker_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -63,10 +64,11 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
     final textTheme = Theme.of(context).textTheme;
     final user = ref.watch(userProvider);
     debugPrint(user.name.toString());
+    final language = AppLocalizations.of(context);
     return Scaffold(
       body: Column(
         children: [
-          CustomAppBar(title: "Profile", centerTitle: true, isTrailing: false),
+          CustomAppBar(title: language!.profile, centerTitle: true, isTrailing: false),
           SizedBox(height: 24.h),
           Padding(
             padding: AppPadding.horizontalPadding,
@@ -92,7 +94,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     textTheme: textTheme,
                   ),
                   customListTile(
-                    title: "Logout",
+                    title: language.logout,
                     iconPath: AppIcons.logOut,
                     onTap: () async {
                       final prefs = await SharedPreferencesServiceImpl.create();

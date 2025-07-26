@@ -1,5 +1,6 @@
 import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
 import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_scheme.dart';
+import 'package:danielpurcaru_time_tracker_app/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,6 +17,7 @@ class SelectProjectDropDownButton extends ConsumerWidget {
     final selectedProject = ref.watch(selectedProjectProvider);
     final projectState = ref.watch(projectProvider);
     final key = GlobalKey();
+    final language = AppLocalizations.of(context);
 
     return projectState.when(
       loading: () => const Center(child: CircularProgressIndicator()),
@@ -26,7 +28,7 @@ class SelectProjectDropDownButton extends ConsumerWidget {
           onTap: () async {
             if (projects.isEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('No projects available')),
+                SnackBar(content: Text(language!.noProjectsAvailable)),
               );
               return;
             }
@@ -55,7 +57,7 @@ class SelectProjectDropDownButton extends ConsumerWidget {
             child: Row(
               children: [
                 Text(
-                  selectedProject?.name ?? "Select the Project",
+                  selectedProject?.name ?? language!.selectProject,
                   style: textTheme.bodyMedium?.copyWith(
                     color: AppColorScheme.onSurface,
                   ),
