@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../data/model/day_records.dart';
 import '../../../../../data/model/month_records.dart';
+import '../../../../../data/provider/month_chart_repository_provider.dart';
+import '../../../home_screen/data/provider/employee_summery_provider.dart';
+import '../../riverpod/month_repository_provider.dart';
 import 'statistics_card.dart';
-class StatisticSection extends StatelessWidget {
+class StatisticSection extends ConsumerWidget {
   const StatisticSection({
     super.key,
-    required this.monthRecords,
   });
 
-  final MonthRecords monthRecords;
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final monthChart = ref.watch(monthChartProvider);
+    final monthRecords = ref.watch(monthRecordRepositoryProvider);
+    double? totalEarning;
+    double? totalHours;
+
+    if (monthRecords.isNotEmpty) {
+      totalEarning = monthRecords.first.totalEarningMonthly;
+      totalHours = monthRecords.first.totalHoursMonthly;
+    }
+
     return Column(
       children: [
         Row(
@@ -20,15 +32,15 @@ class StatisticSection extends StatelessWidget {
           children: [
             StatisticsCard(
               title: 'Total Days',
-              value: monthRecords.days.toString(),
+              value: monthChart.complete.toString(),
             ),
             StatisticsCard(
               title: 'Total Hours',
-              value: monthRecords.totalHours.toString(),
+              value: totalHours.toString(),
             ),
             StatisticsCard(
               title: 'Total Earning',
-              value: '\$${monthRecords.totalEarning.toString()}',
+              value: '\$${totalEarning.toString()}',
             ),
           ],
         ),

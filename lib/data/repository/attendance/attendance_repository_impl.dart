@@ -1,4 +1,7 @@
+import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_scheme.dart';
+import 'package:danielpurcaru_time_tracker_app/core/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../core/services/chache/shared_preferences_services.dart';
 import '../../../core/services/chache/shared_preferences_services_impl.dart';
@@ -75,8 +78,20 @@ class AttendanceRepositoryImpl extends AttendanceRepository {
       if (response['success'] == true) {
         debugPrint('Response: $response');
         debugPrint('Attendance submitted successfully');
+        Utils.showToast(
+          message: 'Attendance submitted successfully',
+          backgroundColor: AppColorScheme.successful,
+          textColor: AppColorScheme.secondary,
+        );
       } else {
         final message = response['message'] ?? 'Failed to submit attendance';
+        debugPrint('Response: $response');
+        debugPrint('Attendance submission error: $message');
+        Utils.showToast(
+          message: message,
+          backgroundColor: AppColorScheme.error,
+          textColor: Colors.white,
+        );
         throw Exception(message);
       }
     } catch (e) {
@@ -84,5 +99,4 @@ class AttendanceRepositoryImpl extends AttendanceRepository {
       rethrow; // Let the UI show error (handled below)
     }
   }
-
 }

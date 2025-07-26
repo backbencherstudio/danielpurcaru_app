@@ -28,7 +28,6 @@ class _SubmitScreenState extends ConsumerState<SubmitScreen> {
 
     Future.microtask(() {
       ref.read(projectProvider.notifier).fetchProjects(
-        userId: "cmcsy3x090000wsd4r4ap187i",
         startDate: "2023-12-20",
         endDate: "2023-12-20",
       );

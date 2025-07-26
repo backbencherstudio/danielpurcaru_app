@@ -1,0 +1,129 @@
+{
+  "@@locale": "pt",
+
+  "hiWelcomeBack": "Olá! Bem-vindo de volta",
+  "@hiWelcomeBack": {
+    "description": "Mensagem de saudação quando o usuário abre a tela de login"
+  },
+
+  "loginToAccount": "Faça login na sua conta",
+  "@loginToAccount": {
+    "description": "Texto para login na conta"
+  },
+
+  "pleaseEnterUsername": "Por favor, insira seu nome de usuário ou e-mail",
+  "@pleaseEnterUsername": {
+    "description": "Mensagem de validação para nome de usuário ou e-mail"
+  },
+
+  "enterUsername": "Digite seu nome de usuário ou e-mail",
+  "@enterUsername": {
+    "description": "Texto de espaço reservado para o campo de nome de usuário ou e-mail"
+  },
+
+  "pleaseEnterPassword": "Por favor, insira sua senha",
+  "@pleaseEnterPassword": {
+    "description": "Mensagem de validação para a senha"
+  },
+
+  "enterPassword": "Digite sua senha",
+  "@enterPassword": {
+    "description": "Texto de espaço reservado para o campo de senha"
+  },
+
+  "rememberMe": "Lembrar-me",
+  "@rememberMe": {
+    "description": "Rótulo da caixa de seleção para lembrar o usuário"
+  },
+
+  "login": "Entrar",
+  "@login": {
+    "description": "Rótulo do botão para enviar o formulário de login"
+  },
+
+  "totalHours": "Horas Totais",
+  "@totalHours": {
+    "description": "Rótulo para o total de horas trabalhadas"
+  },
+
+  "perHour": "Por Hora",
+  "@perHour": {
+    "description": "Rótulo indicando pagamento por hora"
+  },
+
+  "earning": "Ganho",
+  "@earning": {
+    "description": "Rótulo para ganho atual"
+  },
+
+  "totalEarning": "Ganho Total",
+  "@totalEarning": {
+    "description": "Rótulo para ganho total acumulado"
+  },
+  "month": "Mês",
+  "@month": {
+    "description": "Rótulo para o mês do calendário"
+  },
+
+  "status": "Status",
+  "@status": {
+    "description": "Rótulo para o status atual"
+  },
+
+  "complete": "Concluído",
+  "@complete": {
+    "description": "Indica que algo está concluído"
+  },
+
+  "unfinished": "Incompleto",
+  "@unfinished": {
+    "description": "Indica que algo não está concluído"
+  },
+
+  "day": "Dia",
+  "@day": {
+    "description": "Rótulo para um único dia"
+  },
+
+  "selectArea": "Selecione a área",
+  "@selectArea": {
+    "description": "Mensagem para selecionar uma área"
+  },
+
+  "noProjectsAvailable": "Nenhum projeto disponível",
+  "@noProjectsAvailable": {
+    "description": "Exibido quando não há projetos"
+  },
+  "selectProject": "Selecione o projeto",
+  "@selectProject": {
+    "description": "Mensagem para selecionar um projeto"
+  },
+  "start": "Início",
+  "@start": {
+    "description": "Rótulo para o horário de início"
+  },
+  "lunch": "Almoço",
+  "@lunch": {
+    "description": "Rótulo para o horário do almoço"
+  },
+  "end": "Fim",
+  "@end": {
+    "description": "Rótulo para o horário de término"
+  },
+  "prices": "Preços",
+  "@prices": {
+    "description": "Rótulo para a seção de preços"
+  },
+  "apply": "Aplicar",
+  "@apply": {
+    "description": "Botão para aplicar filtros ou alterações"
+  },
+  "profile": "Perfil",
+  "@profile": {
+    "description": "Rótulo da seção de perfil do usuário"
+  },
+  "logout": "Sair",
+  "@logout": {
+    "description": "Botão para encerrar sessão"
+  }
+}

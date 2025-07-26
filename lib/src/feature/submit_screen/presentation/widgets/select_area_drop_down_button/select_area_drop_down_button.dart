@@ -3,6 +3,7 @@ import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../../l10n/app_localizations.dart';
 import '../../../../../common_widgets/custom_popup_menu/custom_popup_menu.dart';
 import '../../../data/riverpod/address_selection_provider.dart';
 
@@ -14,6 +15,7 @@ class SelectAreaDropDownButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context).textTheme;
     final area = ref.watch(addressSelectionProvider);
+    final language = AppLocalizations.of(context);
     return GestureDetector(
       key: _key,
       onTap: () async {
@@ -39,7 +41,7 @@ class SelectAreaDropDownButton extends ConsumerWidget {
           children: [
             Icon(Icons.location_on_outlined, color: AppColorScheme.onSurface),
             Text(
-              area==""?"Select the area":area,
+              area==""?language!.selectArea:area,
               style: textTheme.bodyMedium?.copyWith(
                 color: AppColorScheme.onSurface,
               ),

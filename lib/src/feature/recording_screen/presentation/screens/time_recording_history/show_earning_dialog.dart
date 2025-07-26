@@ -30,12 +30,12 @@ void showEarningDialog(BuildContext context, DayRecord record) {
             ListTile(
               leading: Icon(Icons.access_time, color: Colors.orange),
               title: Text("Total Hours"),
-              subtitle: Text(record.totalHours),
+              subtitle: Text(record.totalHoursDaily),
             ),
             ListTile(
               leading: Icon(Icons.monetization_on, color: Colors.green),
               title: Text("Earning"),
-              subtitle: Text("\$${record.earning.toStringAsFixed(2)}", style: TextStyle(fontWeight: FontWeight.bold)),
+              subtitle: Text("\$${record.earningDaily.toStringAsFixed(2)}", style: TextStyle(fontWeight: FontWeight.bold)),
             ),
           ],
         ),

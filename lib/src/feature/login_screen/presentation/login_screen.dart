@@ -4,6 +4,7 @@ import 'package:danielpurcaru_time_tracker_app/core/constant/padding.dart';
 import 'package:danielpurcaru_time_tracker_app/core/routes/route_const.dart';
 import 'package:danielpurcaru_time_tracker_app/core/services/chache/shared_preferences_services_impl.dart';
 import 'package:danielpurcaru_time_tracker_app/core/theme/theme_extension/color_scheme.dart';
+import 'package:danielpurcaru_time_tracker_app/l10n/app_localizations.dart';
 import 'package:danielpurcaru_time_tracker_app/src/feature/login_screen/riverpod/single_value_provider/password_visibility_provider.dart';
 import 'package:danielpurcaru_time_tracker_app/src/feature/login_screen/riverpod/single_value_provider/remember_me_provider.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final language = AppLocalizations.of(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -56,10 +58,10 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 70.h),
-                Text("Hi! Welcome Back", style: textTheme.displaySmall),
+                Text(language!.hiWelcomeBack, style: textTheme.displaySmall),
                 SizedBox(height: 2.h),
                 Text(
-                  "Log in to your account",
+                  language.loginToAccount,
                   style: textTheme.bodyLarge?.copyWith(
                     color: AppColorScheme.labelTextColor,
                   ),
@@ -71,12 +73,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   onTapOutside: (_) => userNameFocusNode.unfocus(),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your username or email';
+                      return language.pleaseEnterUsername;
                     }
                     return null;
                   },
                   decoration: InputDecoration(
-                    hintText: "Enter your Username or email",
+                    hintText: language.pleaseEnterUsername,
                   ),
                 ),
                 SizedBox(height: 12.h),
@@ -90,12 +92,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: passwordController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
+                          return language.pleaseEnterPassword;
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                        hintText: "Enter your password",
+                        hintText: language.enterPassword,
                         suffixIcon: GestureDetector(
                           onTap: () => ref
                               .read(passwordVisibilityProvider.notifier)
@@ -128,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                     ),
-                    Text("Remember me"),
+                    Text(language.rememberMe),
                   ],
                 ),
                 SizedBox(height: 32.h),
@@ -157,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                         child: authState.isLoading
                             ? const CircularProgressIndicator()
-                            : const Text('Login'),
+                            : Text(language.login),
                       );
                     },
                   ),
